@@ -27,7 +27,7 @@ Resources:
   UrlShortener:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: !Sub 'awscodestar-${ProjectId}-lambda-Create'
+      FunctionName: !Sub 'awscodestar-${ProjectId}-lambda-UrlShortener'
       Handler: index.handler
       Runtime: python3.7
       Role:
