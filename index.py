@@ -8,7 +8,7 @@ import os
 # description: create short url token
 # create 2020.6.2
 
-def lambda_handler(event, context):
+def handler(event, context):
     token = hex(uuid.getnode())
 
     url = event['postData']['url']
