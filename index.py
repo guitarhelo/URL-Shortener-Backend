@@ -1,5 +1,6 @@
 import uuid
 import boto3
+import json
 import os
 
 
@@ -22,7 +23,8 @@ def lambda_handler(event, context):
         s3.put_object(ACL='public-read', Bucket=bucket, Key=token, WebsiteRedirectLocation=url, ContentType='text/html')
 
         return {'statusCode': 200,
-                'body': json.dumps({'short_url': short_url, 'url': url, 'token': token})}
+                'body': json.dumps({'short_url': short_url, 'url': url, 'token': token}),
+                'headers': {'Content-Type': 'application/json'}}
     except Exception as e:
         print(e)
         raise e
